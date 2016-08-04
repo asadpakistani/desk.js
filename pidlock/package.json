@@ -1,0 +1,87 @@
+{
+  "name": "pidlock",
+  "version": "0.1.0",
+  "description": "Simple PID-based solution to ensure at most one instance of a node.js app is running.",
+  "author": {
+    "name": "Dima Korolev",
+    "email": "dmitry.korolev@gmail.com",
+    "url": "http://dimakorolev.com/"
+  },
+  "homepage": "https://github.com/dkorolev/pidlock",
+  "repository": {
+    "url": "git@github.com:dkorolev/pidlock.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/dkorolev/pidlock/issues"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "tags": [
+    "lock",
+    "locking",
+    "linux",
+    "file",
+    "proc",
+    "pid",
+    "pidlock",
+    "guard",
+    "single",
+    "instance",
+    "lockfile",
+    "fs",
+    "O_EXCL"
+  ],
+  "keywords": [
+    "lock",
+    "locking",
+    "linux",
+    "file",
+    "proc",
+    "pid",
+    "pidlock",
+    "guard",
+    "single",
+    "instance",
+    "lockfile",
+    "fs",
+    "O_EXCL"
+  ],
+  "engines": {
+    "node": ">= 0.8.x"
+  },
+  "scripts": {
+    "test": "./test.sh"
+  },
+  "main": "lib/pidlock.js",
+  "dependencies": {
+    "mkpath": "*",
+    "underscore": "*"
+  },
+  "readme": "## pidlock\n\nSimple PID-based solution to ensure at most one instance of a node.js app is running.\n\n### Goal\n\nMake it simple to guard an app from multiple parallel invocations.\n\n### Synopsis\n\n```\nvar pidlock = require('pidlock');\npidlock.guard('/tmp', 'supercalifragilisticexpialidocious', function(error, data, cleanup) {\n  if (!error) {\n    // Should run.\n    run();\n    cleanup();\n  } else {\n    // Another instance is already running.\n  }\n});\n```\n\n### Design\n\n```pidlock``` is based on creating the directory with the name corresponding to the PID of the process and then [atomically] renaming this directory to become or replace the \"lock file\".\n\nThe \"lock file\" is technically a symlink to another directory with the name being the PID of the process that used to acquire this ```pidlock``` before.\n\nThe authencity of the lock is validated by two checks:\n\n1. ```/proc/$old_pid/cmdline``` for the older PID can be read. This also confirms the process is alive.\n2. ```/prod/$current_pid/cmdline``` for the process trying to acquire the lock matches the one for the process that has done it before.\n\n**Important: The command line must be the same in order for this logic to work. Make sure your system invokes the code with the same command line.**\n\nDynamic parameters will have to be passed via flags or ```process.env``` to avoid this issue.\n\nIf you do not do so, different invocations of the same script with different command lines would be considered different apps and they will fight for the lock.\n\n### Guarantees\n\nNone.\n\n\"Buy a toaster\"  -- Jos Visser.\n\nIn case of uncertainty, ```pidlock``` errs on the conversative side, assuming that if the server runs under some supervisor and that someone would eventually get notified should it start crashlooking. Although crashlooping could primarily occur if some file/path permissions are off, which would be easy to see right away.\n\nIf the checks fail in a way that allows drawing the conclusion that the lock is stale, it is being overwritten and the new process is being started.\n",
+  "readmeFilename": "README.md",
+  "_id": "pidlock@0.1.0",
+  "dist": {
+    "shasum": "042493a1ef40e6c6568039a5780465708f725191",
+    "tarball": "https://registry.npmjs.org/pidlock/-/pidlock-0.1.0.tgz"
+  },
+  "_from": "pidlock@latest",
+  "_npmVersion": "1.3.14",
+  "_npmUser": {
+    "name": "dkorolev",
+    "email": "dmitry.korolev@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "dkorolev",
+      "email": "dmitry.korolev@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_shasum": "042493a1ef40e6c6568039a5780465708f725191",
+  "_resolved": "https://registry.npmjs.org/pidlock/-/pidlock-0.1.0.tgz"
+}

@@ -1,0 +1,23 @@
+GET /api/v2/users?page=1&per_page=1
+host: devel.desk.com
+accept: application/json
+content-type: application/json
+
+200 HTTP/1.1
+accept-ranges: bytes
+cache-control: no-cache, private
+content-type: application/json; charset=utf-8
+date: Sun, 04 Aug 2013 23:24:27 GMT
+etag: "1375650223"
+status: 200 OK
+vary: X-AppVersion
+x-appversion: 6.0
+x-frame-options: SAMEORIGIN
+x-rate-limit-limit: 60
+x-rate-limit-remaining: 33
+x-rate-limit-reset: 33
+x-request-id: 4fdd66d8c0ad4626265060ed23aa7342
+content-length: 673
+connection: keep-alive
+
+{"total_entries":5,"_links":{"self":{"href":"/api/v2/users?page=1&per_page=1","class":"page"},"first":{"href":"/api/v2/users?page=1&per_page=1","class":"page"},"last":{"href":"/api/v2/users?page=5&per_page=1","class":"page"},"previous":null,"next":{"href":"/api/v2/users?page=2&per_page=1","class":"page"}},"_embedded":{"entries":[{"name":"Thomas Stachl","public_name":"Thomas Stachl","email":"tstachl@salesforce.com","level":"siteadmin_billing","_links":{"self":{"href":"/api/v2/users/16096734","class":"user"},"preferences":{"href":"/api/v2/users/16096734/preferences","class":"user_preference"},"searches":{"href":"/api/v2/users/16096734/searches","class":"search"}}}]}}

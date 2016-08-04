@@ -1,0 +1,54 @@
+{
+  "name": "is-phone-number",
+  "version": "1.0.4",
+  "description": "check if string is a phone number",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tejas-manohar/is-phone-number.git"
+  },
+  "keywords": [
+    "phone",
+    "number",
+    "phone",
+    "regex",
+    "match"
+  ],
+  "author": {
+    "name": "Tejas Manohar",
+    "email": "me@tejasmanohar.com",
+    "url": "https://tejas.io/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tejas-manohar/is-phone-number/issues"
+  },
+  "homepage": "https://github.com/tejas-manohar/is-phone-number",
+  "devDependencies": {
+    "ava": "0.0.4"
+  },
+  "gitHead": "63b81d331ce6c70575e540531cff4ccca53f58c6",
+  "_id": "is-phone-number@1.0.4",
+  "_shasum": "8f9789f4049f3f63efc3b40c527a520dee71bc23",
+  "_from": "is-phone-number@latest",
+  "_npmVersion": "1.4.21",
+  "_npmUser": {
+    "name": "tejas-manohar",
+    "email": "me@tejasmanohar.com"
+  },
+  "maintainers": [
+    {
+      "name": "tejas-manohar",
+      "email": "me@tejasmanohar.com"
+    }
+  ],
+  "dist": {
+    "shasum": "8f9789f4049f3f63efc3b40c527a520dee71bc23",
+    "tarball": "https://registry.npmjs.org/is-phone-number/-/is-phone-number-1.0.4.tgz"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/is-phone-number/-/is-phone-number-1.0.4.tgz"
+}
